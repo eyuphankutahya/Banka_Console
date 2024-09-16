@@ -1,0 +1,66 @@
+package bank;
+public class KrediKarti extends Musteri{//kredi kartını array liste eklemek için 
+  private int kartNumarasi;
+  private double limit;
+  private double guncelBorc;
+private int kullanilabilirLimit;
+  //getter ve seter metotları ve toString metodu
+public int getKartNumarasi() {
+		return kartNumarasi;	}
+	public void setKartNumarasi(int kartNumarasi) {
+		this.kartNumarasi = kartNumarasi;	}
+	public double getLimit() {
+		return limit;	}
+	public void setLimit(double limit) {
+		this.limit = limit;	}
+	public double getGuncelBorc() {
+		return guncelBorc;	}
+	public void setGuncelBorc(double guncelBorc) {
+		this.guncelBorc = guncelBorc;	}
+  @Override
+  public String toString() {
+      return "KrediKarti{" + "kartNumarasi=" + kartNumarasi + ", limit=" + limit + ", guncelBorc=" + guncelBorc + '}';  }
+
+public KrediKarti(int kartNumarasi, double limit, double guncelBorc,int kullanilabilirLimit) {
+
+    this.kartNumarasi = kartNumarasi;
+    this.limit = limit;
+    this.guncelBorc = guncelBorc;
+    this.kullanilabilirLimit = (int) kullanilabilirLimit(kartNumarasi,guncelBorc);
+}
+public void krediKartiEkle(int kartNumarasi, double limit){
+    KrediKarti krediKarti = new KrediKarti(kartNumarasi,limit,0,(int) limit);
+    krediKartiListesi.add(krediKarti);
+    System.out.println("Kart eklendi.");
+    System.out.println("Kart numarası: "+kartNumarasi);
+    System.out.println("Limit: "+limit);
+    System.out.println("Güncel borç: 0");
+    System.out.println("Kullanılabilir limit: "+limit);
+}
+public void krediKartiSil(int kartNumarasi, double limit, double guncelBorc,int kullanilabilirLimit){
+    for(int i=0;i<krediKartiListesi.size();i++){
+        if(krediKartiListesi.get(i).getKartNumarasi()==kartNumarasi && krediKartiListesi.get(i).getGuncelBorc()==0){
+            krediKartiListesi.remove(i);
+            System.out.println("Kart silindi.");
+            break;
+        }
+        else if(krediKartiListesi.get(i).getKartNumarasi()==kartNumarasi && krediKartiListesi.get(i).getGuncelBorc()!=0){
+            System.out.println("Kart silinemedi. Kartın borcu bulunmaktadır.");
+            System.out.println("Kart numarası: "+kartNumarasi);
+            System.out.println("Limit: "+limit);
+            System.out.println("Güncel borç: "+guncelBorc);
+            System.out.println("Kullanılabilir limit: "+kullanilabilirLimit);
+            break;
+        }
+    }
+}
+public double kullanilabilirLimit(int kartNumarasi,double guncelBorc){
+	return guncelBorc;
+}
+//       public void kullanilabilirLimit() {
+//     for (KrediKarti krediKarti : krediKartlari) {
+//         System.out.println("Kart Numarasi: " + krediKarti.getKartNumarasi() +
+//                 ", Kullanilabilir Limit: " + (krediKarti.getLimit() - krediKarti.getGuncelBorc()));
+//     }
+// }
+}

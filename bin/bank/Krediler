@@ -1,0 +1,41 @@
+package bank;
+
+public class Krediler extends Musteri{//musteri numarası için
+private int krediID;
+private double krediMiktari;
+private double taksitMiktar;
+
+//getter ve seter metotları ve toString metodu
+public int getKrediID() {
+		return krediID;	}
+	public void setKrediID(int krediID) {
+		this.krediID = krediID;	}
+	public double getKrediMiktari() {
+		return krediMiktari;	}
+	public void setKrediMiktari(double krediMiktari) {
+		this.krediMiktari = krediMiktari;	}
+	public double getTaksitMiktar() {
+		return taksitMiktar;	}
+	public void setTaksitMiktar(double taksitMiktar) {
+		this.taksitMiktar = taksitMiktar;	}
+@Override
+public String toString() {
+    return "Krediler{" + "krediID=" + krediID + ", krediMiktari=" + krediMiktari + ", taksitMiktar=" + taksitMiktar + '}';  }
+
+	Musteri m = new Musteri();
+    Krediler(int krediID, int musteriNumarasi,double krediMiktarı){
+        this.krediID = krediID;
+        this.krediMiktari = krediMiktari;
+     this.taksitMiktar = krediMiktari/12;
+     this.m.setMusteriNumarasi(musteriNumarasi);
+        //this.yillikKazanc = yillikKazanc;
+
+    double krediVerilecekMiktar = yillikKazanc * 0.5;
+    if (krediMiktarı <= krediVerilecekMiktar) {
+        System.out.println("Kredi basvurunuz onaylandi.");
+     
+    } else {
+        System.out.println("Maalesef, kredi basvurunuz reddedildi. Kredi miktarı yıllık kazancınızın %50'sinden fazla olamaz.");      }}
+
+public void kampanya(KrediKarti limit){  }
+}

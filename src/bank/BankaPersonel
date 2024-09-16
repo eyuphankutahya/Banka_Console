@@ -1,0 +1,21 @@
+package bank;
+
+import java.util.ArrayList;
+
+public class BankaPersonel extends Kisi{
+private int personelID;
+
+//setter ve getter metotları ve toString metodu
+public int getPersonelID() {
+  return personelID;	}
+public void setPersonelID(int personelID) {
+  this.personelID = personelID;	}
+@Override
+public String toString() {
+  return "BankaPersonel{" + "personelID=" + personelID + ", musteriListesi=" + musteriList + '}';}
+
+public BankaPersonel(int tcKimlikNo, String ad, String soyad, String email, int telefon) {
+    super(ad, soyad, email, telefon);
+    this.personelID=kontrol(personelID,sayiüret());
+    }
+  }

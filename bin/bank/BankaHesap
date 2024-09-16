@@ -1,0 +1,129 @@
+package bank;
+
+
+import java.util.Date;
+
+public class BankaHesap{
+private   long iban;
+private  Date hesapAcilisTarihi;
+private double toplamBakiye;
+private  Double islemMiktari;
+private  String hesapTuru;//vadesiz veya vadeli
+private  String hesapBilgisi;//maas hesabi veya standart hesap
+private  int musteriNumarasi;//otomatik eklendi copilot tarafindan
+//getter ve seter metotları ve toString metodu
+public long getIban() {
+  return iban;	}
+public void setIban(long iban) {
+  this.iban = iban;	}
+public Date getHesapAcilisTarihi() {
+  return hesapAcilisTarihi;	}
+public void setHesapAcilisTarihi(Date hesapAcilisTarihi) {
+  this.hesapAcilisTarihi = hesapAcilisTarihi;	}
+public double getToplamBakiye() {
+  return toplamBakiye;	}
+public void setToplamBakiye(double toplamBakiye) {
+  this.toplamBakiye = toplamBakiye;	}
+public String getHesapBilgisi() {
+  return hesapBilgisi;	}
+public void setHesapBilgisi(String hesapBilgisi) {
+  this.hesapBilgisi = hesapBilgisi;	}
+public Double getIslemMiktari() {
+  return islemMiktari;	}
+public void setIslemMiktari(Double islemMiktari) {
+  this.islemMiktari = islemMiktari;	}
+public String getHesapTuru() {
+  return hesapTuru;	}
+public void setHesapTuru(String hesapTuru) {
+  this.hesapTuru = hesapTuru;	}
+@Override
+public String toString() {
+  return "BankaHesap{" + "iban=" + iban + ", hesapAcilisTarihi=" + hesapAcilisTarihi + ", toplamBakiye=" + toplamBakiye + ", hesapBilgisi=" + hesapBilgisi + ", islemMiktari=" + islemMiktari + ", hesapTuru=" + hesapTuru + '}';}
+  
+  
+// ● BankaHesap sınıfının içindeki hesapTuru hesap türü bilgilerini tutacaktır. Bu hesap
+//türleri vadesiz hesap ve vadeli hesap olacaktır. 1 vadesiz hesabı temsil ederken, 2 vadeli
+//hesabı temsil edecektir.
+	
+// @Override
+//İREM KOD 
+// public String hesapBilgisi() {
+//   Scanner scan = new Scanner(System.in);
+
+//   BankaHesap banka = new BankaHesap();
+  
+//   System.out.println("Maas hesabi icin 1'i Normal hesap icin 2'yi tuslayin!");
+//   int secim=scan.nextInt();
+//   if(secim==1) {
+//     banka.setHesapBilgisi("Maas Hesabi");
+//     banka.setHesapTuru("Vadesiz Maas Hesabi");
+//     long vadesizMaasIban=banka.randomiban();
+//     banka.setIban(vadesizMaasIban);
+//     System.out.println("Aylik gelirinizi giriniz: ");
+//     float maasgelir;
+//     maasgelir=scan.nextFloat();
+//     vadesizBakiye=maasgelir;
+//     System.out.println("Vadesiz Maas Hesabiniz olusturulmustur!");
+//   }
+//   else if(secim==2) {
+//     banka.setHesapBilgisi("Normal Hesabi");
+//     banka.setHesapTuru("Vadesiz Normal Hesabi");
+//     long vadeliMaasIban=banka.randomiban();
+//     banka.setIban(vadeliMaasIban);
+//     System.out.println("Rutin para akisini giriniz: ");
+//     float gelir=scan.nextFloat();
+//     vadesizBakiye=gelir;
+//     System.out.println("Vadesiz Normal Hesabiniz olusturulmustur!");
+//   }
+//   else
+//     System.out.println("Lutfen belirtilen secenekleri tuslayiniz!");
+//   return super.getHesapBilgisi();
+// }
+
+
+public BankaHesap(){;}
+
+public BankaHesap(int iban,int toplamBakiye,String hesapBilgisi){
+  super();
+  this.iban = iban;
+  this.toplamBakiye = toplamBakiye;
+  this.hesapBilgisi = hesapBilgisi;
+}
+public void paraYatirma(int musteriNumarasi,double islemMiktari){
+  this.islemMiktari = islemMiktari;
+  toplamBakiye += islemMiktari;
+  System.out.println("Para yatırma işlemi gerçekleştirildi.");
+  System.out.println("Müşteri Numarası: "+musteriNumarasi);
+  System.out.println("İşlem Miktarı: "+islemMiktari);
+  System.out.println("Toplam Bakiye: "+toplamBakiye);
+}
+public void paraCekme(int musteriNumarasi,double islemMiktari){
+  this.islemMiktari = islemMiktari;
+  toplamBakiye -= islemMiktari;
+  System.out.println("Para çekme işlemi gerçekleştirildi.");
+  System.out.println("Müşteri Numarası: "+musteriNumarasi);
+  System.out.println("İşlem Miktarı: "+islemMiktari);
+  System.out.println("Toplam Bakiye: "+toplamBakiye);
+}
+public void hesapOzeti(int musteriNumarasi){
+  System.out.println("Hesap Özeti");
+  System.out.println("Müşteri Numarası: "+musteriNumarasi);
+  System.out.println("İşlem Miktarı: "+islemMiktari);
+  System.out.println("Toplam Bakiye: "+toplamBakiye);
+}
+public void hesapKapatma(int musteriNumarasi){
+  System.out.println("Hesap Kapatma");
+  System.out.println("Müşteri Numarası: "+musteriNumarasi);
+  System.out.println("Toplam Bakiye: "+toplamBakiye);
+}
+
+public void hesapGoruntulenme(int musteriNumarasi,String ad,String soyad,long iban,double toplamBakiye,String hesapBilgisi){
+    System.out.println("Hesap Görüntüleme");
+    System.out.println("Müşteri Numarası: "+musteriNumarasi);
+    System.out.println("Ad: "+ad);
+    System.out.println("Soyad: "+soyad);
+    System.out.println("IBAN: "+iban);
+    System.out.println("Toplam Bakiye: "+toplamBakiye);
+    System.out.println("Hesap Bilgisi: "+hesapBilgisi);
+}
+}

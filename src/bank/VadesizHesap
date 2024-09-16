@@ -1,0 +1,43 @@
+package bank;
+
+//● VadeliHesap sınıfı BankaHesap sınıfından türetilecektir. VadeliHesap sınıfı içinde
+//hesapTuru, vadeliBakiye ve faizOrani bilgileri tutulacaktır. VadeliHesap sınıfı içinde
+//hesapTuru bilgisi 2 olarak tanımlanacaktır. VadeliHesap sınıfı içinde faizOrani bilgisi
+//hesapTuru bilgisi 2 ise %10, hesapTuru bilgisi 1 ise %5 olarak tanımlanacaktır.
+
+public class VadeliHesap extends BankaHesap{
+String hesapTuru;
+int vadeliBakiye;
+float faizOrani;
+//seter ve geter metotları ve toString metodu
+public String getHesapTuru() {
+return hesapTuru;	}
+public void setHesapTuru(String hesapTuru) {
+this.hesapTuru = hesapTuru;	}
+public int getVadeliBakiye() {
+return vadeliBakiye;	}
+public void setVadeliBakiye(int vadeliBakiye) {
+this.vadeliBakiye = vadeliBakiye;	}
+public float getFaizOrani() {
+return faizOrani;	}
+public void setFaizOrani(float faizOrani) {
+this.faizOrani = faizOrani;	}
+@Override
+public String toString() {
+return "VadeliHesap{" + "hesapTuru=" + hesapTuru + ", vadeliBakiye=" + vadeliBakiye + ", faizOrani=" + faizOrani + '}';}
+
+
+public VadeliHesap(String hesapTuru,double vadeliBakiye,float faizOrani){
+ //super(iban,toplamBakiye,hesapBilgisi);
+ this.hesapTuru = hesapTuru;
+ this.vadeliBakiye = (int) vadeliBakiye;
+ this.faizOrani = faizOrani;
+
+ /*if(hesapTuru == "Maaş Hesap"){
+ faizOrani = 0.20;
+}else if(hesapTuru == "Normal Hesap"){
+ faizOrani = 0.10;  }
+else{
+ System.out.println("Hatalı giriş yaptınız.");  }*/
+}
+}
